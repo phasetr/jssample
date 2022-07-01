@@ -22,6 +22,7 @@ yarn nx run <proj>:<target>
 yarn nx run store:serve
 yarn nx run store:serve --port 3000 # we can set port in workspace.json
 yarn nx run store:lint
+nx serve store
 
 yarn nx run store:serve # run react in tutorial
 yarn add @mui/material

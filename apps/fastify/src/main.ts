@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import fastify from 'fastify';
-import fastifySwagger from 'fastify-swagger';
+import fastifySwagger from '@fastify/swagger';
 import fastifyJwt from '@fastify/jwt';
 import fastifyCors from '@fastify/cors';
 
