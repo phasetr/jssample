@@ -1,10 +1,6 @@
-/*
- * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- This is a starter component and can be deleted.
- * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- Delete this file and get started with your project!
- * * * * * * * * * * * * * * * * * * * * * * * * * * * *
- */
+import { Link as ReactLink } from 'react-router-dom';
+import { Link as MuiLink } from '@mui/material';
+
 export function NxWelcome({ title }: { title: string }) {
   return (
     <>
@@ -420,6 +416,9 @@ export function NxWelcome({ title }: { title: string }) {
               <span> Hello there, </span>
               Welcome {title} 👋
             </h1>
+            <MuiLink>
+              <ReactLink to="/">Go Home</ReactLink>
+            </MuiLink>
           </div>
 
           <div id="hero" className="rounded">
@@ -440,7 +439,7 @@ export function NxWelcome({ title }: { title: string }) {
                 </svg>
                 <span>You&apos;re up and running</span>
               </h2>
-              <a href="#commands"> What&apos;s next? </a>
+              <a href="nx-welcome/#commands"> What&apos;s next? </a>
             </div>
             <div className="logo-container">
               <svg

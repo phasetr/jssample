@@ -4,9 +4,10 @@
 
 - [Tutorial movies](https://egghead.io/lessons/javascript-install-and-use-external-npm-packages-in-an-nx-workspace)
 - [GitHub](https://github.com/juristr/egghead-scale-react-dev-with-nx/)
+- [nx.dev, nx-cli](https://nx.dev/using-nx/nx-cli)
 
 ```shell
-npx create-nx-workspace nxegghead
+npx create-nx-workspace my-project
 
 yarn nx list # we can confirm options
 yarn add @nrwl/react
@@ -39,10 +40,10 @@ yarn nx @nrwl/react:lib feature-game-detail --directory=store --appProject=store
 yarn add -D @nrwl/express # 公式ページから調べて適切なコマンドを実行
 yarn nx g @nrwl/express:application api --frontendProject=store --dry-run
 yarn nx g @nrwl/express:application api --frontendProject=store
-yarn nx run api:servem
+yarn nx run api:serve
 yarn nx dep
 
-yarn nx run-many --target=serve --projects=api,store --pararell=true
+yarn nx run-many --target=serve --projects=api,store --parallel=true
 # workspace.jsonに適切に追記
 yarn nx run store:serveAppAndApi
 
@@ -75,13 +76,42 @@ yarn nx affected:test --all
 # affetedのキャッシュはnode_modules/.cache
 
 yarn nx migrate latest
+
+nx run my-js-app:build
+nx build my-js-app
+nx run-many --target=build --projects=app1,app2
+nx run-many --target=test --all # Runs all projects that have a test target, use this sparingly.
+nx affected --target=build# 毎回すべてのプロジェクトを実行するよりも効率的
+nx generate workspace-generator my-generator # ワークスペース用のカスタムジェネレーター
+nx migrate latest # Updates the version of Nx in `package.json` and schedules migrations to be run
+nx migrate --run-migrations # Runs the migrations scheduled by the previous command.
+nx graph
+nx graph --watch # Updates the browser as code is changed
+nx affected:graph # Highlights projects which may have changed in behavior
+nx list
+nx list @nrwl/react # Lists capabilities in the @nrwl/react plugin
+```
+
+### UIライブラリ追加
+
+```
+# Generate UI lib
+nx g @nrwl/react:lib ui
+# Add a component
+nx g @nrwl/react:component button --project ui
+```
+
+### プロジェクト削除
+
+- [参考](https://github.com/nrwl/nx/issues/333#issuecomment-605903501)
+
+```
+nx g @nrwl/workspace:rm <project name>
 ```
 
 # Jssamples
 
 This project was generated using [Nx](https://nx.dev).
-
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
 
 🔎 **Smart, Fast and Extensible Build System**
 
@@ -89,7 +119,8 @@ This project was generated using [Nx](https://nx.dev).
 
 Nx supports many plugins which add capabilities for developing different types of applications and different tools.
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects
+as well.
 
 Below are our core plugins:
 
@@ -126,7 +157,8 @@ Libraries are shareable across libraries and applications. They can be imported 
 
 ## Development server
 
-Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you
+change any of the source files.
 
 ## Code scaffolding
 
@@ -134,7 +166,8 @@ Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new
 
 ## Build
 
-Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use
+the `--prod` flag for a production build.
 
 ## Running unit tests
 
@@ -156,16 +189,15 @@ Run `nx graph` to see a diagram of the dependencies of your projects.
 
 Visit the [Nx Documentation](https://nx.dev) to learn more.
 
-
-
 ## ☁ Nx Cloud
 
 ### Distributed Computation Caching & Distributed Task Execution
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
+Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that
+are new to Nx can connect to Nx Cloud and start saving time instantly.
 
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
+Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s
+advanced code generation and project dependency graph, plus a unified experience for both frontend and backend
+developers.
 
 Visit [Nx Cloud](https://nx.app/) to learn more.

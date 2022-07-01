@@ -3,6 +3,7 @@
   "version": 2,
   "projects": {
     "jssample": "apps/jssample",
-    "jssample-e2e": "apps/jssample-e2e"
+    "jssample-e2e": "apps/jssample-e2e",
+    "ui": "libs/ui"
   }
 }
