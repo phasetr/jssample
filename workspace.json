@@ -2,6 +2,7 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "fastify": "apps/fastify",
     "jssample": "apps/jssample",
     "jssample-e2e": "apps/jssample-e2e",
     "ui": "libs/ui"
