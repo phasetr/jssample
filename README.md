@@ -2,7 +2,8 @@
 
 ## Herokuデプロイの参考
 
-- [URL](https://dev.to/ihaback/deploy-a-fullstack-nx-workspace-on-heroku-3mhk)
+- [Article URL](https://dev.to/ihaback/deploy-a-fullstack-nx-workspace-on-heroku-3mhk)
+- [GitHub](https://github.com/ihaback/nx-fullstack)
 
 ```shell
 yarn create nx-workspace --package-manager=yarn nx-fullstack
