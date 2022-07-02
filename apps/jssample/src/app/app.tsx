@@ -17,6 +17,8 @@ type MenuItem = {
 
 const menus: MenuItem[] = [
   { to: '/', text: 'Home (here)', icon: <HomeIcon /> },
+  { to: '/app-bar', text: 'App Bar', icon: <HomeIcon /> },
+  { to: '/responsive-app-bar-with-drawer', text: 'Responsive App bar with drawer', icon: <HomeIcon /> },
   { to: '/nx-welcome', text: 'Nx Welcome', icon: <BookIcon /> },
   { to: '/link', text: 'Link', icon: <BookIcon /> },
 ];
