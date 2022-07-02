@@ -2,7 +2,7 @@ import { InnerLink, Link1, Link2, Link3, OuterLink } from '@jssamples/ui';
 import Box from '@mui/material/Box';
 import { CssBaseline } from '@mui/material';
 
-export function Link() {
+export function MyLink() {
   return (
     <>
       <CssBaseline />
@@ -24,4 +24,4 @@ export function Link() {
   );
 }
 
-export default Link;
+export default MyLink;

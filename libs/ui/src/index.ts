@@ -1,3 +1,7 @@
+export * from './lib/app-bar/enable-color-on-dark-app-bar';
+export * from './lib/app-bar/prominent-app-bar';
+export * from './lib/app-bar/dense-app-bar';
+export * from './lib/app-bar/app-bar-with-primary-search-field';
 export * from './lib/app-bar/responsive-app-bar-with-drawer';
 export * from './lib/app-bar/app-bar-with-search-field';
 export * from './lib/app-bar/app-bar-with-responsive-menu';

@@ -1,5 +1,12 @@
 # README
 
+## アプリケーション起動コマンド
+
+```shell
+nx serve <proj-name>
+nx serve jssample
+```
+
 ## コマンドメモ
 
 - [Tutorial movies](https://egghead.io/lessons/javascript-install-and-use-external-npm-packages-in-an-nx-workspace)
