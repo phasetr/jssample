@@ -4,11 +4,12 @@ import {
   AppBarWithResponsiveMenu,
   AppBarWithSearchField,
   BasicAppBar,
-  DenseAppBar, EnableColorOnDarkAppBar,
+  DenseAppBar,
+  EnableColorOnDarkAppBar,
   InnerLink,
   OuterLink,
-  ProminentAppBar
-} from "@jssamples/ui";
+  ProminentAppBar,
+} from '@jssamples/ui';
 import { Box } from '@mui/material';
 
 export function AppBar() {
@@ -44,10 +45,7 @@ export function AppBar() {
       <Box component="h2">Prominent App Bar</Box>
       <ProminentAppBar />
       <Box component="h2">Bottom App bar</Box>
-      <InnerLink
-        to="/bottom-app-bar"
-        content="Go Bottom App Bar"
-      />
+      <InnerLink to="/bottom-app-bar" content="Go Bottom App Bar" />
       <Box component="h2">TODO: Scroll to Hide App Bar</Box>
       <Box component="h2">TODO: Scroll to elevate App Bar</Box>
       <Box component="h2">TODO: Scroll to see button</Box>

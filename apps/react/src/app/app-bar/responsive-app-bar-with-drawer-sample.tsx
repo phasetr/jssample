@@ -3,7 +3,7 @@ import {
   OuterLink,
   ResponsiveAppBarWithDrawer,
 } from '@jssamples/ui';
-import { Box, ListItem, Toolbar } from "@mui/material";
+import { Box, ListItem, Toolbar } from '@mui/material';
 import List from '@mui/material/List';
 
 export function ResponsiveAppBarWithDrawerSample() {
@@ -25,7 +25,9 @@ export function ResponsiveAppBarWithDrawerSample() {
           <InnerLink to="/app-bar" content="Go App Bar" />
         </ListItem>
       </List>
-      <Box component="p">メニューが上部張り付きで、widthを小さくするとメニューが折り畳まれてハンバーガーアイコンになる</Box>
+      <Box component="p">
+        メニューが上部張り付きで、widthを小さくするとメニューが折り畳まれてハンバーガーアイコンになる
+      </Box>
       <ResponsiveAppBarWithDrawer />
     </>
   );

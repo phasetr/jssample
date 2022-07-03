@@ -3,8 +3,8 @@
   "version": 2,
   "projects": {
     "fastify": "apps/fastify",
-    "jssample": "apps/jssample",
-    "jssample-e2e": "apps/jssample-e2e",
+    "react": "apps/react",
+    "react-e2e": "apps/react-e2e",
     "ui": "libs/ui"
   }
 }

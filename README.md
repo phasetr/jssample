@@ -40,6 +40,8 @@ nx serve jssample
 
 ## コマンドメモ
 
+### チュートリアルのメモ
+
 - [Tutorial movies](https://egghead.io/lessons/javascript-install-and-use-external-npm-packages-in-an-nx-workspace)
 - [GitHub](https://github.com/juristr/egghead-scale-react-dev-with-nx/)
 - [nx.dev, nx-cli](https://nx.dev/using-nx/nx-cli)
@@ -146,6 +148,15 @@ nx g @nrwl/react:component button --project ui
 
 ```
 nx g @nrwl/workspace:rm <project name>
+```
+
+### プロジェクトのリネーム
+
+- [NX workspace, how to change an Angular app name with the the cli?](https://stackoverflow.com/questions/64987978/nx-workspace-how-to-change-an-angular-app-name-with-the-the-cli)
+
+```shell
+nx g @nrwl/workspace:move --project oldNG newNG
+nx g mv --project oldNG newN
 ```
 
 ## fastify, prisma

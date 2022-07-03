@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/jssample/src",
+  "sourceRoot": "apps/react/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -9,14 +9,14 @@
       "defaultConfiguration": "production",
       "options": {
         "compiler": "babel",
-        "outputPath": "dist/apps/jssample",
-        "index": "apps/jssample/src/index.html",
+        "outputPath": "dist/apps/react",
+        "index": "apps/react/src/index.html",
         "baseHref": "/",
-        "main": "apps/jssample/src/main.tsx",
-        "polyfills": "apps/jssample/src/polyfills.ts",
-        "tsConfig": "apps/jssample/tsconfig.app.json",
-        "assets": ["apps/jssample/src/favicon.ico", "apps/jssample/src/assets"],
-        "styles": ["apps/jssample/src/styles.css"],
+        "main": "apps/react/src/main.tsx",
+        "polyfills": "apps/react/src/polyfills.ts",
+        "tsConfig": "apps/react/tsconfig.app.json",
+        "assets": ["apps/react/src/favicon.ico", "apps/react/src/assets"],
+        "styles": ["apps/react/src/styles.css"],
         "scripts": [],
         "webpackConfig": "@nrwl/react/plugins/webpack"
       },
@@ -30,8 +30,8 @@
         "production": {
           "fileReplacements": [
             {
-              "replace": "apps/jssample/src/environments/environment.ts",
-              "with": "apps/jssample/src/environments/environment.prod.ts"
+              "replace": "apps/react/src/environments/environment.ts",
+              "with": "apps/react/src/environments/environment.prod.ts"
             }
           ],
           "optimization": true,
@@ -47,15 +47,15 @@
       "executor": "@nrwl/web:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "jssample:build",
+        "buildTarget": "react:build",
         "hmr": true
       },
       "configurations": {
         "development": {
-          "buildTarget": "jssample:build:development"
+          "buildTarget": "react:build:development"
         },
         "production": {
-          "buildTarget": "jssample:build:production",
+          "buildTarget": "react:build:production",
           "hmr": false
         }
       }
@@ -64,14 +64,14 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/jssample/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/react/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/jssample"],
+      "outputs": ["coverage/apps/react"],
       "options": {
-        "jestConfig": "apps/jssample/jest.config.ts",
+        "jestConfig": "apps/react/jest.config.ts",
         "passWithNoTests": true
       }
     }
