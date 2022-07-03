@@ -39,4 +39,5 @@ testem.log
 Thumbs.db
 
 *.db
+*.db-journal
 apps/fastify/prisma/migrations

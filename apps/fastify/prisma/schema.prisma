@@ -7,19 +7,19 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model User {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  email     String   @unique
+model JwtSampleUser {
+  id        Int             @id @default(autoincrement())
+  createdAt DateTime        @default(now())
+  email     String          @unique
   password  String
-  tasks     Task[]
+  tasks     JwtSampleTask[]
 }
 
-model Task {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
+model JwtSampleTask {
+  id        Int           @id @default(autoincrement())
+  createdAt DateTime      @default(now())
   title     String
-  completed Boolean  @default(false)
-  user      User     @relation(fields: [userId], references: [id])
+  completed Boolean       @default(false)
+  user      JwtSampleUser @relation(fields: [userId], references: [id])
   userId    Int
 }

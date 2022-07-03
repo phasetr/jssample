@@ -165,12 +165,12 @@ nx g mv --project oldNG newN
 - `npx prisma init`
   - `apps/fastify/prisma`に`schema.prisma`が生成される
 - `schema.prisma`を編集
-- `npx prisma migra dev --name init`を実行
+- `npx prisma migrate dev --name init`を実行
 - `apps/fastify/.env.sample`をコピーして`.env`を作る
   - TODO: ルートディレクトリにまとめられないか確認
 - `npx prisma migrate dev --name init`
   - TODO: `workspace.json`にタスクとして登録したい
-- seedを入れたい場合は`NODE_OPTIONS="--loader ts-node/esm" prisma/seed.ts`を実行する
+- seedを入れたい場合は`NODE_OPTIONS="--loader ts-node/esm" node prisma/seed.ts`を実行する
 
 ### TODO
 

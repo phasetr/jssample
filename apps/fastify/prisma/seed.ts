@@ -3,7 +3,7 @@ import { hashSync } from 'bcrypt';
 
 const prisma = new PrismaClient();
 
-const userData: Prisma.UserCreateInput[] = [
+const jwtSampleUserData: Prisma.JwtSampleUserCreateInput[] = [
   {
     email: 'test1@test',
     password: hashSync('testpassword', 10),
@@ -28,22 +28,20 @@ const userData: Prisma.UserCreateInput[] = [
   },
 ];
 
-const transfer = async () => {
-  const users = [];
-  for (const u of userData) {
-    const user = prisma.user.create({
-      data: u,
+const userCreate = async () => {
+  const jwtSampleUsers = [];
+  for (const jsu of jwtSampleUserData) {
+    const jwtSampleUser = prisma.jwtSampleUser.create({
+      data: jsu,
     });
-    users.push(user);
+    jwtSampleUsers.push(jwtSampleUser);
   }
-  return await prisma.$transaction(users);
+  return await prisma.$transaction(jwtSampleUsers);
 };
 
 // 定義されたデータを実際のモデルへ登録する処理
 const main = async () => {
-  console.log(`Start seeding ...`);
-  await transfer();
-  console.log(`Seeding finished.`);
+  await userCreate();
 };
 
 // 処理開始
