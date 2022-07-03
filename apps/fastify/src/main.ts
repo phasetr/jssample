@@ -31,7 +31,7 @@ app.post<{ Body: { email: string; password: string } }>(
   async (req, reply) => {
     const { email, password } = req.body;
     console.log(email, password);
-    const user = await prisma.user.findUnique({
+    const user = await prisma.jwtSampleUser.findUnique({
       where: {
         email,
       },
@@ -58,6 +58,6 @@ app.listen({ port: Number(process.env.PORT) }, (err) => {
     process.exit(1);
   }
   console.log(`
-  🚀 Server ready at: http://localhost:3000
+  🚀 Server ready at: http://localhost:${process.env.PORT}
   ⭐️ See sample requests: http://pris.ly/e/ts/rest-fastify#3-using-the-rest-api`);
 });

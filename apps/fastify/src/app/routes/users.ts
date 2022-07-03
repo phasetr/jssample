@@ -25,16 +25,16 @@ export const users: FastifyPluginCallback = (
     Body: {
       email: string;
       password: string;
-      tasks: Prisma.TaskCreateInput[];
+      tasks: Prisma.JwtSampleTaskCreateInput[];
     };
   }>(`/`, async (req, res) => {
     const { email, password, tasks } = req.body;
 
-    const taskData = tasks?.map((task: Prisma.TaskCreateInput) => {
+    const taskData = tasks?.map((task: Prisma.JwtSampleTaskCreateInput) => {
       return { title: task?.title };
     });
 
-    const result = await prisma.user.create({
+    const result = await prisma.jwtSampleUser.create({
       data: {
         email,
         password,
@@ -47,7 +47,7 @@ export const users: FastifyPluginCallback = (
   });
 
   fastify.get('/', async (req, res) => {
-    const users = await prisma.user.findMany({
+    const users = await prisma.jwtSampleUser.findMany({
       select: {
         id: true,
         email: true,
@@ -58,7 +58,7 @@ export const users: FastifyPluginCallback = (
 
   fastify.get<{ Params: { id: number } }>('/:id', async (req, res) => {
     const { id } = req.params;
-    const users = await prisma.user.findUnique({
+    const users = await prisma.jwtSampleUser.findUnique({
       where: {
         id,
       },
@@ -78,7 +78,7 @@ export const users: FastifyPluginCallback = (
       res.send({ err: 401 });
     }
 
-    const users = await prisma.user.delete({
+    const users = await prisma.jwtSampleUser.delete({
       where: {
         id,
       },
@@ -90,7 +90,7 @@ export const users: FastifyPluginCallback = (
     '/:userId/tasks',
     async (req, res) => {
       const { userId } = req.params;
-      const task = await prisma.task.findMany({
+      const task = await prisma.jwtSampleTask.findMany({
         where: {
           userId,
         },
@@ -104,7 +104,7 @@ export const users: FastifyPluginCallback = (
     async (req, res) => {
       const { title } = req.body;
       const { userId } = req.params;
-      const result = await prisma.task.create({
+      const result = await prisma.jwtSampleTask.create({
         data: {
           title,
           user: {

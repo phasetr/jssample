@@ -27,7 +27,7 @@ export const tasks: FastifyPluginCallback = (
   }>('/:id', async (req, res) => {
     const { id } = req.params;
     const { title, completed } = req.body;
-    const task = await prisma.task.update({
+    const task = await prisma.jwtSampleTask.update({
       data: {
         title,
         completed,
@@ -41,7 +41,7 @@ export const tasks: FastifyPluginCallback = (
 
   fastify.delete<{ Params: { id: number } }>('/:id', async (req, res) => {
     const { id } = req.params;
-    const task = await prisma.task.findUnique({
+    const task = await prisma.jwtSampleTask.findUnique({
       where: {
         id,
       },
@@ -59,7 +59,7 @@ export const tasks: FastifyPluginCallback = (
       return;
     }
 
-    await prisma.task.delete({
+    await prisma.jwtSampleTask.delete({
       where: {
         id,
       },
