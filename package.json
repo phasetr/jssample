@@ -2,7 +2,6 @@
   "name": "jssamples",
   "version": "0.0.0",
   "license": "MIT",
-  "type": "module",
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
@@ -21,12 +20,14 @@
     "@mui/styles": "^5.8.6",
     "@mui/system": "^5.8.6",
     "@mui/x-data-grid": "^5.12.3",
+    "@nrwl/next": "^14.4.0",
     "@prisma/client": "^4.0.0",
     "@sinclair/typebox": "^0.24.5",
     "@types/bcrypt": "^5.0.0",
     "bcrypt": "^5.0.1",
     "core-js": "^3.6.5",
     "fastify": "^4.2.0",
+    "next": "^12.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-router-dom": "6.3.0",
@@ -55,6 +56,7 @@
     "babel-jest": "27.5.1",
     "cypress": "^9.1.0",
     "eslint": "~8.15.0",
+    "eslint-config-next": "12.1.6",
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-cypress": "^2.10.3",
     "eslint-plugin-import": "2.26.0",
@@ -72,4 +74,3 @@
     "typescript": "^4.7.4"
   }
 }
-

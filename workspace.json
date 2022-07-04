@@ -3,6 +3,8 @@
   "version": 2,
   "projects": {
     "fastify": "apps/fastify",
+    "next": "apps/next",
+    "next-e2e": "apps/next-e2e",
     "react": "apps/react",
     "react-e2e": "apps/react-e2e",
     "ui": "libs/ui"

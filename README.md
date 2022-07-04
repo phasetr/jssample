@@ -170,7 +170,9 @@ nx g mv --project oldNG newN
   - TODO: ルートディレクトリにまとめられないか確認
 - `npx prisma migrate dev --name init`
   - TODO: `workspace.json`にタスクとして登録したい
-- seedを入れたい場合は`NODE_OPTIONS="--loader ts-node/esm" node prisma/seed.ts`を実行する
+- seedを入れたい場合は次のように進める
+  - `package.json`に`"type": "module"`を設定 
+  - `NODE_OPTIONS="--loader ts-node/esm" node prisma/seed.ts`を実行
 
 ### TODO
 
