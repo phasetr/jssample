@@ -7,7 +7,7 @@ import IconButton from "@mui/material/IconButton";
 type Props = {
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
-export default function Child(props: Props) {
+export function Child(props: Props) {
   return (
     <Paper component="form">
       <InputBase onChange={props.handleChange} />
@@ -17,3 +17,5 @@ export default function Child(props: Props) {
     </Paper>
   );
 }
+
+export default Child;

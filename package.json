@@ -6,7 +6,7 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
-    "dev": "yarn nx run-many --target=serve --projects=react,fastify --parallel=true"
+    "dev": "yarn nx run-many --target=serve --projects=fastify,next,react --parallel=true"
   },
   "private": true,
   "dependencies": {
@@ -43,6 +43,7 @@
     "@nrwl/node": "14.4.0",
     "@nrwl/nx-cloud": "14.2.0",
     "@nrwl/react": "14.4.0",
+    "@nrwl/storybook": "^14.4.0",
     "@nrwl/web": "14.4.0",
     "@nrwl/workspace": "14.4.0",
     "@testing-library/react": "13.3.0",

@@ -6,7 +6,7 @@ import List from '@mui/material/List';
 import BookIcon from '@mui/icons-material/Book';
 import ListItem from '@mui/material/ListItem';
 import Divider from '@mui/material/Divider';
-import { CssBaseline, Link as MuiLink } from "@mui/material";
+import { CssBaseline, Link as MuiLink } from '@mui/material';
 
 type MenuItem = {
   to: string;
@@ -15,10 +15,16 @@ type MenuItem = {
 };
 
 const menus: MenuItem[] = [
+  { to: 'http://localhost:3002', text: 'To React', icon: <MailIcon /> },
   { to: '#', text: 'Home (here)', icon: <MailIcon /> },
-  { to: '/samples/links', text: 'aタグ', icon: <BookIcon /> },
-  { to: '/samples/admin-state', text: '親子コンポーネントの状態管理サンプル', icon: <BookIcon /> },
+  {
+    to: '/samples/admin-state',
+    text: '親子コンポーネントの状態管理サンプル',
+    icon: <BookIcon />,
+  },
+  { to: '/samples/app-bar', text: 'App Bar', icon: <BookIcon /> },
   { to: '/samples/book-keeper', text: 'Book Keeper', icon: <BookIcon /> },
+  { to: '/samples/links', text: 'aタグ', icon: <BookIcon /> },
 ];
 
 const externalLinks: MenuItem[] = [

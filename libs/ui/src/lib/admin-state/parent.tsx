@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import Child from "components/admin-state/child";
-import Typography from "@mui/material/Typography";
+import React, { useState } from 'react';
+import Child from './child';
+import Typography from '@mui/material/Typography';
 
-export default function Parent() {
-  const [inputText, setInputText] = useState("");
+export function Parent() {
+  const [inputText, setInputText] = useState('');
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     setInputText(event.target.value);
@@ -19,3 +19,5 @@ export default function Parent() {
     </div>
   );
 }
+
+export default Parent;

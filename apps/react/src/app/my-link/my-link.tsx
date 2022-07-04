@@ -1,11 +1,10 @@
 import { InnerLink, Link1, Link2, Link3, OuterLink } from '@jssamples/ui';
 import Box from '@mui/material/Box';
-import { CssBaseline } from '@mui/material';
+import { WithLeftMenu } from '@jssamples/ui';
 
 export function MyLink() {
   return (
-    <>
-      <CssBaseline />
+    <WithLeftMenu>
       <Box component="h1">aタグサンプル集</Box>
       <Box component="p">
         <InnerLink to="/" content="Go Home" />
@@ -20,7 +19,7 @@ export function MyLink() {
       <Link1 to="#" />
       <Link2 to="#" />
       <Link3 to="#" />
-    </>
+    </WithLeftMenu>
   );
 }
 

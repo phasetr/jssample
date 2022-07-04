@@ -1,29 +1,23 @@
-import {
-  AppBarWithMenu,
-  AppBarWithPrimarySearchField,
-  AppBarWithResponsiveMenu,
-  AppBarWithSearchField,
-  BasicAppBar,
-  DenseAppBar,
-  EnableColorOnDarkAppBar,
-  InnerLink,
-  OuterLink,
-  ProminentAppBar,
-} from '@jssamples/ui';
-import { Box } from '@mui/material';
+import { Box, Link as MuiLink } from '@mui/material';
+import BasicAppBar from './basic-app-bar';
+import AppBarWithMenu from './app-bar-with-menu';
+import AppBarWithResponsiveMenu from './app-bar-with-responsive-menu';
+import AppBarWithSearchField from './app-bar-with-search-field';
+import AppBarWithPrimarySearchField from './app-bar-with-primary-search-field';
+import DenseAppBar from './dense-app-bar';
+import ProminentAppBar from './prominent-app-bar';
+import EnableColorOnDarkAppBar from './enable-color-on-dark-app-bar';
 
-export function AppBar() {
+export function AppBars() {
   return (
     <>
       <Box component="h1">
-        <OuterLink
+        <MuiLink
           href="https://mui.com/material-ui/react-app-bar/"
-          key=""
-          content="App bar samples"
-        />
-      </Box>
-      <Box component="p">
-        <InnerLink to="/" content="Go Home" />
+          rel="noopener noreferer"
+        >
+          App bar samples
+        </MuiLink>
       </Box>
       <Box component="h2">Basic App bar</Box>
       <BasicAppBar />
@@ -34,10 +28,7 @@ export function AppBar() {
       <Box component="h2">App bar with search field</Box>
       <AppBarWithSearchField />
       <Box component="h2">Responsive App bar with drawer</Box>
-      <InnerLink
-        to="/responsive-app-bar-with-drawer"
-        content="Go Responsive App bar with drawer"
-      />
+      <p>Go Responsive App bar with drawer</p>
       <Box component="h2">App bar with a primary search field</Box>
       <AppBarWithPrimarySearchField />
       <Box component="h2">Dense App bar</Box>
@@ -45,7 +36,7 @@ export function AppBar() {
       <Box component="h2">Prominent App Bar</Box>
       <ProminentAppBar />
       <Box component="h2">Bottom App bar</Box>
-      <InnerLink to="/bottom-app-bar" content="Go Bottom App Bar" />
+      <p>Go Bottom App Bar</p>
       <Box component="h2">TODO: Scroll to Hide App Bar</Box>
       <Box component="h2">TODO: Scroll to elevate App Bar</Box>
       <Box component="h2">TODO: Scroll to see button</Box>
@@ -54,5 +45,4 @@ export function AppBar() {
     </>
   );
 }
-
-export default AppBar;
+export default AppBars;

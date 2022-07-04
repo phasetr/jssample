@@ -1,4 +1,4 @@
-import Parent from 'components/admin-state/parent';
+import { Parent } from '@jssamples/ui';
 import { Box } from '@mui/system';
 import { Link as MuiLink } from '@mui/material';
 

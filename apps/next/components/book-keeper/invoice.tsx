@@ -1,10 +1,10 @@
-import { InvoiceDatum } from 'components/book-keeper/data';
+import { InvoiceDatum } from "./data";
 import { Box, Button } from '@mui/material';
 import React from 'react';
 
 type InvoiceComponent = {
   invoiceDatum: InvoiceDatum;
-  handleDelete: (e: React.MouseEvent<HTMLInputElement>) => void;
+  handleDelete: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 export default function Invoice({
   invoiceDatum,

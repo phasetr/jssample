@@ -1,5 +1,5 @@
 import { Box, Link as MuiLink } from '@mui/material';
-import Root from 'components/book-keeper/root';
+import Root from '../../components/book-keeper/root';
 
 export default function BookKeeper() {
   return (

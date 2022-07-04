@@ -2,23 +2,24 @@ import {
   deleteInvoiceDatum,
   getInvoiceData,
   getInvoiceDatum,
-} from 'components/book-keeper/data';
-import { useEffect, useState } from 'react';
+  InvoiceDatum,
+} from "./data";
+import React, { useEffect, useState } from 'react';
 import { Box, Button, Input, List, ListItem } from '@mui/material';
 import Invoice from './invoice';
 
 export default function Invoices() {
-  const [invoiceDatum, setInvoiceDatum] = useState(undefined);
-  const [invoiceData, setInvoiceData] = useState([]);
+  const [invoiceDatum, setInvoiceDatum] = useState<InvoiceDatum>();
+  const [invoiceData, setInvoiceData] = useState<InvoiceDatum[]>([]);
   const [searchParams, setSearchParams] = useState('');
   useEffect(() => {
     setInvoiceData(getInvoiceData());
   }, []);
-  const handleListItemClick = (e) => {
+  const handleListItemClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const id = Number(e.currentTarget.value);
     setInvoiceDatum(getInvoiceDatum(id));
   };
-  const handleDelete = (e) => {
+  const handleDelete = (e: React.MouseEvent<HTMLButtonElement>) => {
     const number = Number(e.currentTarget.value);
     const retInvoiceData = deleteInvoiceDatum(number, invoiceData);
     setInvoiceData(retInvoiceData);
@@ -68,7 +69,11 @@ export default function Invoices() {
         </List>
       </nav>
       <Box component="section">
-        <Invoice invoiceDatum={invoiceDatum} handleDelete={handleDelete} />
+        {invoiceDatum ? (
+          <Invoice invoiceDatum={invoiceDatum} handleDelete={handleDelete} />
+        ) : (
+          <></>
+        )}
       </Box>
     </Box>
   );
