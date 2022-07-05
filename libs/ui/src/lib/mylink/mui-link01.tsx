@@ -1,15 +1,6 @@
-import { styled } from '@mui/styles';
-import { Link } from 'react-router-dom';
+import { Link as MuiLink, styled } from '@mui/material';
 
-export interface Link1Props {
-  to: string;
-}
-
-export function Link1({ to }: Link1Props) {
-  return <LinkWrapper1 to={to}>link1</LinkWrapper1>;
-}
-
-const LinkWrapper1 = styled(Link)({
+export const MuiLink01 = styled(MuiLink)({
   display: 'inline-block',
   padding: '0.5em 1em',
   textDecoration: 'none',
@@ -23,5 +14,4 @@ const LinkWrapper1 = styled(Link)({
     borderBottom: 'none',
   },
 });
-
-export default Link1;
+export default MuiLink01;

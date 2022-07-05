@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import MyLink from './my-link';
+import MuiLink03 from './mui-link03';
 
-describe('MyLink', () => {
+describe('MuiLink03', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<MyLink />);
+    const { baseElement } = render(<MuiLink03 />);
     expect(baseElement).toBeTruthy();
   });
 });

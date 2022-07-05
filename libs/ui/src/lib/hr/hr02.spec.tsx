@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import Link3 from './link3';
+import Hr02 from './hr02';
 
-describe('Link3', () => {
+describe('Hr02', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<Link3 to={'#'} />);
+    const { baseElement } = render(<Hr02 />);
     expect(baseElement).toBeTruthy();
   });
 });

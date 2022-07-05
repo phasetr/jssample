@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import Headers from './headers';
+import BasicGrid from './basic-grid';
 
-describe('Headers', () => {
+describe('BasicGrid', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<Headers />);
+    const { baseElement } = render(<BasicGrid />);
     expect(baseElement).toBeTruthy();
   });
 });

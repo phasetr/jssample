@@ -1,7 +1,7 @@
 import { AppBars } from '@jssamples/ui';
 import { Link as MuiLink } from '@mui/material';
 
-export function AppBar() {
+export function Index() {
   return (
     <>
       <p>TODO: WithLeftMenu</p>
@@ -11,4 +11,4 @@ export function AppBar() {
   );
 }
 
-export default AppBar;
+export default Index;

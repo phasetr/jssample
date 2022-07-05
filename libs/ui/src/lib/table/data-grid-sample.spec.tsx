@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import Link2 from './link2';
+import DataGridSample from './data-grid-sample';
 
-describe('Link2', () => {
+describe('DataGridSample', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<Link2 to={'#'} />);
+    const { baseElement } = render(<DataGridSample />);
     expect(baseElement).toBeTruthy();
   });
 });

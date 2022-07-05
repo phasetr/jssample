@@ -17,9 +17,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import AddIcon from '@mui/icons-material/Add';
 import SearchIcon from '@mui/icons-material/Search';
 import MoreIcon from '@mui/icons-material/MoreVert';
-import { blueGrey } from '@mui/material/colors';
-import { InnerLink } from '@jssamples/ui';
 import ListItemButton from '@mui/material/ListItemButton';
+import { Link as MuiLink } from '@mui/material';
 
 const messages = [
   {
@@ -75,12 +74,12 @@ const StyledFab = styled(Fab)({
   margin: '0 auto',
 });
 
-export default function BottomAppBar() {
+export function BottomAppBar() {
   return (
     <>
       <CssBaseline />
       <Box component="p">
-        <InnerLink to="/" content="Go Home" />
+        <MuiLink href="/">Go Home</MuiLink>
       </Box>
       <Paper square sx={{ pb: '50px' }}>
         <Typography
@@ -133,8 +132,10 @@ export default function BottomAppBar() {
       </AppBar>
       <Box
         component="div"
-        sx={{ backgroundColor: blueGrey, height: '2000px', width: '500px' }}
+        sx={{ backgroundColor: 'blue', height: '500px', width: 'auto' }}
       />
     </>
   );
 }
+
+export default BottomAppBar;

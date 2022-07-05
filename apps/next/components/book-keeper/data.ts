@@ -49,6 +49,5 @@ export function deleteInvoiceDatum(
   number: number,
   invoiceData: InvoiceDatum[]
 ) {
-  console.log('delete', number, invoiceData);
   return invoiceData.filter((invoice) => invoice.number !== number);
 }

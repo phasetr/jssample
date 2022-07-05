@@ -93,13 +93,11 @@ export function ResponsiveAppBarWithDrawer() {
         component="div"
         sx={{
           backgroundColor: 'blue',
-          height: '2000px',
-          width: 'initial',
+          height: '1000px',
+          width: 'auto',
           minWidth: '500px',
         }}
-      >
-        test3
-      </Box>
+      />
     </Box>
   );
 }
