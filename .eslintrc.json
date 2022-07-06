@@ -18,6 +18,11 @@
               }
             ]
           }
+        ],
+        "no-unused-vars": [
+          {
+            "argsIgnorePattern": "^_"
+          }
         ]
       }
     },

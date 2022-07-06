@@ -8,9 +8,10 @@
 ```shell
 yarn create nx-workspace --package-manager=yarn nx-fullstack
 nx generate @nrwl/node:application api
+
 yarn nx run-many --target=serve --projects=nx-fullstack,api --parallel=true
 
-# Update apps/api/src/main.ts
+# 非常に重要: Update apps/api/src/main.ts
 
 # Update build script in package.json and commit it to git
 "build": "yarn nx run-many --target=build --projects=nx-fullstack,api --parallel=true"
