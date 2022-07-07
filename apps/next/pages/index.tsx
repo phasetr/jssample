@@ -15,7 +15,7 @@ type MenuItem = {
 };
 
 const menus: MenuItem[] = [
-  { to: 'http://localhost:3002', text: 'To React', icon: <MailIcon /> },
+  { to: 'http://localhost:3002', text: 'To React (only local)', icon: <MailIcon /> },
   { to: '#', text: 'Home (here)', icon: <MailIcon /> },
   { to: '/samples/app-bar/', text: 'App Bar', icon: <BookIcon /> },
   { to: '/samples/app-bar/bottom', text: 'Bottom App Bar', icon: <BookIcon /> },
