@@ -1,7 +1,7 @@
 import { Link as ReactLink } from 'react-router-dom';
 import { Link as MuiLink } from '@mui/material';
 
-export function NxWelcome({ title }: { title: string }) {
+export function NxWelcome() {
   return (
     <>
       <style
@@ -414,7 +414,7 @@ export function NxWelcome({ title }: { title: string }) {
           <div id="welcome">
             <h1>
               <span> Hello there, </span>
-              Welcome {title} 👋
+              Welcome Nx👋
             </h1>
             <MuiLink>
               <ReactLink to="/">Go Home</ReactLink>
@@ -439,7 +439,7 @@ export function NxWelcome({ title }: { title: string }) {
                 </svg>
                 <span>You&apos;re up and running</span>
               </h2>
-              <a href="nx-welcome/#commands"> What&apos;s next? </a>
+              <a href="apps/next/pages/samples/nx-welcome#commands"> What&apos;s next? </a>
             </div>
             <div className="logo-container">
               <svg
@@ -494,7 +494,7 @@ export function NxWelcome({ title }: { title: string }) {
                 </svg>
               </a>
               <a
-                href="https://blog.nrwl.io/?utm_source=nx-project"
+                href="apps/next/pages/samples/nx-welcome?utm_source=nx-project"
                 target="_blank"
                 rel="noreferrer"
                 className="list-item-link"
@@ -601,7 +601,7 @@ export function NxWelcome({ title }: { title: string }) {
                 </svg>
               </a>
               <a
-                href="https://nxplaybook.com/?utm_source=nx-project"
+                href="apps/next/pages/samples/nx-welcome?utm_source=nx-project"
                 target="_blank"
                 rel="noreferrer"
                 className="list-item-link"
@@ -689,7 +689,7 @@ export function NxWelcome({ title }: { title: string }) {
                 </p>
                 <pre>nx connect-to-nx-cloud</pre>
                 <a
-                  href="https://nx.app/?utm_source=nx-project"
+                  href="apps/next/pages/samples/nx-welcome?utm_source=nx-project"
                   target="_blank"
                   rel="noreferrer"
                 >

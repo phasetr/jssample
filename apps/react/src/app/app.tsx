@@ -11,7 +11,7 @@ export function App() {
         <Box component="p">
           ルーター設定が面倒なのでできる限りNext版を基本にする
         </Box>
-        <MuiLink href="http://localhost:3001">Go to Next.js</MuiLink>
+        <MuiLink href="http://localhost:4200">Go to Next.js</MuiLink>
       </WithLeftMenu>
     </>
   );

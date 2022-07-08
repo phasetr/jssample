@@ -2,7 +2,6 @@ import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import App from './app/app';
-import NxWelcome from './app/nx-welcome';
 import BookKeeper from './app/book-keeper/book-keeper';
 import Expenses from './app/book-keeper/expenses';
 import Invoices from './app/book-keeper/invoices';
@@ -40,7 +39,6 @@ root.render(
             <Route path={':invoiceId'} element={<Invoice />} />
           </Route>
         </Route>
-        <Route path="/nx-welcome" element={<NxWelcome title="jssample" />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>

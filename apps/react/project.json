@@ -49,7 +49,7 @@
       "options": {
         "buildTarget": "react:build",
         "hmr": true,
-        "port": 3002
+        "port": 4201
       },
       "configurations": {
         "development": {

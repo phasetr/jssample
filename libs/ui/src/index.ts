@@ -1,3 +1,6 @@
+export * from './lib/accordion/customization-sample';
+export * from './lib/accordion/controlled-accordion';
+export * from './lib/accordion/basic-accordion';
 export * from './lib/table/data-grid-sample';
 export * from './lib/grid/grid-with-multiple-break-points';
 export * from './lib/grid/basic-grid';
