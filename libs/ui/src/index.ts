@@ -1,3 +1,6 @@
+export * from './lib/masonry/items-with-variable-height';
+export * from './lib/masonry/image-masonry';
+export * from './lib/masonry/basic-masonry';
 export * from './lib/accordion/customization-sample';
 export * from './lib/accordion/controlled-accordion';
 export * from './lib/accordion/basic-accordion';

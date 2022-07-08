@@ -46,6 +46,7 @@ const componentSample: MenuItem[] = [
   { to: '/samples/headers', text: 'Headers', icon: <BookIcon /> },
   { to: '/samples/hrs', text: 'Hrs', icon: <BookIcon /> },
   { to: '/samples/links', text: 'Links', icon: <BookIcon /> },
+  { to: '/samples/masonries', text: 'Masonries', icon: <BookIcon /> },
   { to: '/samples/tables', text: 'Tables', icon: <BookIcon /> },
 ];
 

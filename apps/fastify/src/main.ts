@@ -23,6 +23,10 @@ app.register(fastifyCors, {
   methods: '*',
 });
 
+app.get('/', async (_req, res) => {
+  res.send({"hello": "This is a root message!"});
+});
+
 app.register(routes.users, { prefix: 'users' });
 app.register(routes.tasks, { prefix: 'tasks' });
 
