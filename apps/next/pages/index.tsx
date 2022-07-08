@@ -12,6 +12,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Link from 'next/link';
 
 type MenuItem = {
   to: string;
@@ -28,6 +29,7 @@ const independentPageOrApp: MenuItem[] = [
   { to: '#', text: 'Home (here)', icon: <MailIcon /> },
   { to: '/samples/admin-state', text: 'Admin State', icon: <BookIcon /> },
   { to: '/samples/book-keeper', text: 'Book Keeper', icon: <BookIcon /> },
+  { to: '/samples/nx-welcome', text: 'Nx Welcome', icon: <BookIcon /> },
 ];
 
 const componentSample: MenuItem[] = [
@@ -78,7 +80,7 @@ export function Index() {
           id="panel1bh-header"
         >
           <Typography sx={{ width: '33%', flexShrink: 0 }}>
-            Indepent pages or apps
+            Independent pages or apps
           </Typography>
           <Typography sx={{ color: 'text.secondary' }}>
             a secondary text sample
@@ -87,14 +89,16 @@ export function Index() {
         <AccordionDetails>
           <List>
             {independentPageOrApp.map(({ to, text, icon }) => (
-              <MuiLink href={to} key={to}>
-                <ListItem disablePadding>
-                  <ListItemButton>
-                    <ListItemIcon>{icon}</ListItemIcon>
-                    <ListItemText primary={text} />
-                  </ListItemButton>
-                </ListItem>
-              </MuiLink>
+              <Link href={to} key={to} passHref>
+                <MuiLink href={to} key={to}>
+                  <ListItem disablePadding>
+                    <ListItemButton>
+                      <ListItemIcon>{icon}</ListItemIcon>
+                      <ListItemText primary={text} />
+                    </ListItemButton>
+                  </ListItem>
+                </MuiLink>
+              </Link>
             ))}
           </List>
         </AccordionDetails>
@@ -118,14 +122,16 @@ export function Index() {
         <AccordionDetails>
           <List>
             {componentSample.map(({ to, text, icon }) => (
-              <MuiLink href={to} key={to}>
-                <ListItem disablePadding>
-                  <ListItemButton>
-                    <ListItemIcon>{icon}</ListItemIcon>
-                    <ListItemText primary={text} />
-                  </ListItemButton>
-                </ListItem>
-              </MuiLink>
+              <Link href={to} key={to} passHref>
+                <MuiLink href={to} key={to}>
+                  <ListItem disablePadding>
+                    <ListItemButton>
+                      <ListItemIcon>{icon}</ListItemIcon>
+                      <ListItemText primary={text} />
+                    </ListItemButton>
+                  </ListItem>
+                </MuiLink>
+              </Link>
             ))}
           </List>
         </AccordionDetails>
@@ -149,19 +155,21 @@ export function Index() {
         <AccordionDetails>
           <List>
             {externalLinks.map(({ to, text, icon }) => (
-              <MuiLink
-                href={to}
-                key={to}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <ListItem key={to} disablePadding>
-                  <ListItemButton>
-                    <ListItemIcon>{icon}</ListItemIcon>
-                    <ListItemText primary={text} />
-                  </ListItemButton>
-                </ListItem>
-              </MuiLink>
+              <Link href={to} key={to} passHref>
+                <MuiLink
+                  href={to}
+                  key={to}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <ListItem key={to} disablePadding>
+                    <ListItemButton>
+                      <ListItemIcon>{icon}</ListItemIcon>
+                      <ListItemText primary={text} />
+                    </ListItemButton>
+                  </ListItem>
+                </MuiLink>
+              </Link>
             ))}
           </List>
         </AccordionDetails>

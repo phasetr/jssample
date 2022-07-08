@@ -1,5 +1,5 @@
-import { Link as ReactLink } from 'react-router-dom';
 import { Link as MuiLink } from '@mui/material';
+import Link from 'next/link';
 
 export function NxWelcome() {
   return (
@@ -416,9 +416,9 @@ export function NxWelcome() {
               <span> Hello there, </span>
               Welcome Nx👋
             </h1>
-            <MuiLink>
-              <ReactLink to="/">Go Home</ReactLink>
-            </MuiLink>
+            <Link href="/" passHref>
+              <MuiLink href="/">Go Home</MuiLink>
+            </Link>
           </div>
 
           <div id="hero" className="rounded">
@@ -439,7 +439,10 @@ export function NxWelcome() {
                 </svg>
                 <span>You&apos;re up and running</span>
               </h2>
-              <a href="apps/next/pages/samples/nx-welcome#commands"> What&apos;s next? </a>
+              <a href="apps/next/pages/samples/nx-welcome#commands">
+                {' '}
+                What&apos;s next?{' '}
+              </a>
             </div>
             <div className="logo-container">
               <svg
