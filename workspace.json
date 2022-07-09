@@ -7,6 +7,7 @@
     "next-e2e": "apps/next-e2e",
     "react": "apps/react",
     "react-e2e": "apps/react-e2e",
-    "ui": "libs/ui"
+    "ui": "libs/ui",
+    "ui-e2e": "apps/ui-e2e"
   }
 }

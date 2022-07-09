@@ -1,5 +1,10 @@
 # README
 
+## Storybook
+```shell
+nx g @nrwl/react:storybook-configuration --name=ui
+```
+
 ## Vercel: フロントエンドNext.jsのデプロイ参考
 - [cf. nx.dev](https://nx.dev/guides/deploy-nextjs-to-vercel)
 
