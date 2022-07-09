@@ -3,7 +3,7 @@ import Task from "./task";
 import { useDispatch, useSelector } from "react-redux";
 import { updateTaskState } from "./store";
 
-export default function TaskList() {
+export function TaskList() {
   // We're retrieving our state from the store
   const tasks = useSelector((state) => {
     const tasksInOrder = [
@@ -72,3 +72,5 @@ export default function TaskList() {
     </div>
   );
 }
+
+export default TaskList;

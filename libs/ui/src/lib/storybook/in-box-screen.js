@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchTasks } from "./store";
 import TaskList from "./task-list";
 
-export default function InBoxScreen() {
+export function InBoxScreen() {
   const dispatch = useDispatch();
   // We're retrieving the error field from our updated store
   const { error } = useSelector((state) => state.taskbox);
@@ -32,3 +32,5 @@ export default function InBoxScreen() {
     </div>
   );
 }
+
+export default InBoxScreen;

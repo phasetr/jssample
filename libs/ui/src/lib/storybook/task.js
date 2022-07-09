@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export default function Task({
+export function Task({
   task: { id, title, state },
   onArchiveTask,
   onPinTask,
@@ -62,3 +62,5 @@ export default function Task({
     </div>
   );
 }
+
+export default Task;
