@@ -17,6 +17,12 @@ nx run prisma:migrate
 nx run prisma:seed
 ```
 
+- TODO: 上記`seed`（または適切な`deploy`?）への注意
+    - 次の直接実行で無理やり実行できた
+    - `heroku run bash`
+    - `libs/prisma`で`npx prisma db seed`実行
+    - 当面は最悪これで実行
+
 - コマンドラインで`node --loader ts-node/esm libs/prisma/prisma/seed.ts`を打つと通る
 - expressの`main.js`でポートの変数を`process.env.port`から`process.env.PORT`と大文字に変更する
 - `Procfile`に`release: npx prisma migrate deploy`を追記する
@@ -57,10 +63,6 @@ heroku config:set -a ys-nx-express-prisma PORT=80
 heroku buildpacks:add -a ys-nx-express-prisma heroku/nodejs
 ```
 
-## Prod URL
-- Backend: <https://blooming-wave-53583.herokuapp.com/>
-- Frontend: <https://test-nx-deploy.vercel.app/>
-
 ## command
 ```shell
 yarn create nx-workspace --package-manager=yarn heroku-nx
@@ -94,7 +96,6 @@ heroku addons:create heroku-postgresql:hobby-dev
 ## バックエンドの設定
 ```shell
 heroku create -a ys-jssamples-api
-heroku config:set -a ys-jssamples-api PROJECT_NAME=fastify
 heroku config:set -a ys-jssamples-api PORT=80
 heroku buildpacks:add -a ys-jssamples-api heroku/nodejs
 ```
@@ -283,16 +284,23 @@ nx g mv --project oldNG newN
   - `package.json`に`"type": "module"`を設定
   - `NODE_OPTIONS="--loader ts-node/esm" node prisma/seed.ts`を実行
 
-### TODO
+### `main.ts`への設定
+- `port`だけではなく`host`も設定する
 
-- `package.json`に次を設定したい
-
-```json
-{
-  "prisma": {
-    "seed": "NODE_OPTIONS=\"--loader ts-node/esm\" node apps/fastify/prisma/seed.ts"
+```javascript
+app.listen(
+  {
+    port: Number(process.env.PORT) || 3000,
+    host: process.env.HOST || '0.0.0.0', // ここも入れる
+  },
+  (err) => {
+    if (err) {
+      console.error(err);
+      process.exit(1);
+    }
   }
-}
+);
+
 ```
 
 ### prisma
