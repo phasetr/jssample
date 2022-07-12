@@ -24,7 +24,7 @@ app.register(fastifyCors, {
 });
 
 app.get('/', async (_req, res) => {
-  res.send({"hello": "This is a root message!"});
+  res.send({ hello: 'This is a root message!' });
 });
 
 app.register(routes.users, { prefix: 'users' });
@@ -56,12 +56,18 @@ app.post<{ Body: { email: string; password: string } }>(
   }
 );
 
-app.listen({ port: Number(process.env.PORT) || 3000 }, (err) => {
-  if (err) {
-    console.error(err);
-    process.exit(1);
-  }
-  console.log(`
+app.listen(
+  {
+    port: Number(process.env.PORT) || 3000,
+    host: process.env.HOST || '0.0.0.0',
+  },
+  (err) => {
+    if (err) {
+      console.error(err);
+      process.exit(1);
+    }
+    console.log(`
   🚀 Server ready at: http://localhost:${process.env.PORT}
   ⭐️ See sample requests: http://pris.ly/e/ts/rest-fastify#3-using-the-rest-api`);
-});
+  }
+);
