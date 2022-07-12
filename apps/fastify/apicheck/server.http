@@ -1,13 +1,17 @@
+### ルートメッセージのチェック
+GET https://jssamples.herokuapp.com/
+Content-Type: application/x-www-form-urlencoded
+
 ### Sign in
-POST http://jssamples.herokuapp.com/signin HTTP/1.1
+POST https://jssamples.herokuapp.com/signin
 Content-Type: application/json
 
 {"email":"test1@test", "password":"testpassword"}
 
 ### JWTなしの問い合わせ：401エラー
-GET http://jssamples.herokuapp.com/users
+GET https://jssamples.herokuapp.com/users
 Content-Type: application/x-www-form-urlencoded;
 
 ### JWT付きで問い合わせ：Bearerのあと一つスペースを空けてトークンを書くこと
-GET http://jssamples.herokuapp.com/users
+GET https://jssamples.herokuapp.com/users
 Authorization: Bearer
