@@ -5,6 +5,100 @@
 nx g @nrwl/react:storybook-configuration --name=ui
 ```
 
+## prisma
+- [cf. prismaをlibsに入れる](https://medium.com/swlh/nx-model-with-prisma-68ad1bf90379)
+- [seeding](https://www.prisma.io/docs/guides/database/seed-database)
+- [seedのエラー対応](https://stackoverflow.com/questions/71807996/prisma-db-seed-typescript-problem-with-import-and-typemodule)
+
+```shell
+nx run prisma:init
+# .envをトップに移動して修正
+nx run prisma:migrate 
+nx run prisma:seed
+```
+
+- コマンドラインで`node --loader ts-node/esm libs/prisma/prisma/seed.ts`を打つと通る
+- expressの`main.js`でポートの変数を`process.env.port`から`process.env.PORT`と大文字に変更する
+- `Procfile`に`release: npx prisma migrate deploy`を追記する
+- `package.json`に次の内容を追記する
+
+```json
+{
+  "prisma": {
+    "schema": "libs/prisma/prisma/schema.prisma"
+  }
+}
+```
+
+- 次のコマンドを実行する
+
+```shell
+heroku addons:create heroku-postgresql:hobby-dev
+```
+
+### cf. command test
+```shell
+# libs/ui/prisma/project.jsonにコマンド設定する
+nx run prisma:ls
+```
+
+### prisma
+```shell
+nx run prisma:init
+# 出力されたファイルをルートに移動
+```
+
+### API setting
+```shell
+heroku create -a ys-nx-express-prisma
+heroku config:set -a ys-nx-express-prisma PROJECT_NAME=express
+heroku config:set -a ys-nx-express-prisma PORT=80
+
+heroku buildpacks:add -a ys-nx-express-prisma heroku/nodejs
+```
+
+## Prod URL
+- Backend: <https://blooming-wave-53583.herokuapp.com/>
+- Frontend: <https://test-nx-deploy.vercel.app/>
+
+## command
+```shell
+yarn create nx-workspace --package-manager=yarn heroku-nx
+```
+
+## Frontend deploy: Vercel
+- [cf](https://nx.dev/guides/deploy-nextjs-to-vercel)
+### Vercel設定画面
+- `Build and Output Setting`を開く
+- build command: yarn nx build next --prod
+- output directory: dist/apps/next/.next
+
+## Nest.jsへのメモ
+- [参考](https://zenn.dev/devgeeeen/articles/125a076f81b0df)
+- うまく動かないので`fastify`ではなく素の`express`利用
+
+```shell
+yarn prisma migrate dev --preview-feature
+yarn prisma generate
+
+nest g resource
+```
+
+### deploy
+```shell
+heroku addons:create heroku-postgresql:hobby-dev
+
+# Procfileに`release: npx prisma migrate deply`追加
+```
+
+## バックエンドの設定
+```shell
+heroku create -a ys-jssamples-api
+heroku config:set -a ys-jssamples-api PROJECT_NAME=fastify
+heroku config:set -a ys-jssamples-api PORT=80
+heroku buildpacks:add -a ys-jssamples-api heroku/nodejs
+```
+
 ## Vercel: フロントエンドNext.jsのデプロイ参考
 - [cf. nx.dev](https://nx.dev/guides/deploy-nextjs-to-vercel)
 
@@ -17,6 +111,7 @@ nx g @nrwl/react:storybook-configuration --name=ui
 
 - [Article URL](https://dev.to/ihaback/deploy-a-fullstack-nx-workspace-on-heroku-3mhk)
 - [GitHub](https://github.com/ihaback/nx-fullstack)
+- [Prisma in Heroku](https://www.prisma.io/docs/guides/deployment/deployment-guides/deploying-to-heroku)
 
 ```shell
 yarn create nx-workspace --package-manager=yarn nx-fullstack
@@ -185,7 +280,7 @@ nx g mv --project oldNG newN
 - `npx prisma migrate dev --name init`
   - TODO: `workspace.json`にタスクとして登録したい
 - seedを入れたい場合は次のように進める
-  - `package.json`に`"type": "module"`を設定 
+  - `package.json`に`"type": "module"`を設定
   - `NODE_OPTIONS="--loader ts-node/esm" node prisma/seed.ts`を実行
 
 ### TODO
@@ -205,6 +300,216 @@ nx g mv --project oldNG newN
 - `npx prisma studio`で`localhost:5555`にブラウザが起動する
 
 ## heroku memo
+### nx+React+Fastify
+- [参考](https://dev.to/ihaback/deploy-a-fullstack-nx-workspace-on-heroku-3mhk)
+- 結論: 採用しない
+- `fastify`のルートに`React`を連携させる
+- フロントエンドとバックエンドを分けずに一体でリリースする
+- `Next`だと使えなさそう
+### yarn+prisma
+- 次のコマンドで初期化する
+
+```
+yarn init
+yarn add @prisma/client
+yarn add -D @types/node prisma ts-node typescript
+```
+
+```
+# tsconfig.json
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "outDir": "dist",
+    "strict": true,
+    "lib": [
+      "esnext"
+    ],
+    "esModuleInterop": true
+  }
+}
+```
+
+- `index.ts`を作る
+
+```
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
+
+const userData = {
+  data: {
+    name: "Alice",
+    email: "alice@prisma.io",
+    posts: { create: { title: "Hello World" } },
+    profile: { create: { bio: "I like turtles" } },
+  },
+};
+
+async function main() {
+  // await prisma.user.create(userData);
+  const allUsers = await prisma.user.findMany({
+    include: { posts: true, profile: true },
+  });
+  console.log(allUsers, { depth: null });
+
+  const post = await prisma.post.update({
+    where: { id: 1 },
+    data: { published: true },
+  });
+  console.log(post);
+}
+
+main()
+  .catch((e) => {
+    throw e;
+  })
+  .finally(async () => {
+    await prisma.$disconnect();
+  });
+```
+
+```
+# package.json
+  "scripts": {
+    "dev": "npx ts-node index.ts",
+    "start": "npx ts-node index.ts"
+  }
+```
+
+```
+# Procfile
+web: yarn start
+```
+
+- 次のコマンドで`prisma`を初期化
+
+```
+npx prisma init
+```
+
+- `prisma/schema.prisma`を次のように設定する
+
+```
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Post {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  title     String   @db.VarChar(255)
+  content   String?
+  published Boolean  @default(false)
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  Int
+}
+
+model Profile {
+  id     Int     @id @default(autoincrement())
+  bio    String?
+  user   User    @relation(fields: [userId], references: [id])
+  userId Int     @unique
+}
+
+model User {
+  id      Int      @id @default(autoincrement())
+  email   String   @unique
+  name    String?
+  posts   Post[]
+  profile Profile?
+}
+```
+
+- 次のコマンドを発行する
+
+```
+npx prisma migrate dev --name init
+```
+
+### yarn+express+typescript
+```
+yarn add express
+yarn add -D @types/node typescript
+```
+#### `server.ts`
+```
+const express = require("express");
+const app = express();
+
+app.set("port", process.env.PORT || 3000);
+
+app.get("/", function (request, response) {
+  response.send("Hello World! from TypeScript\n");
+});
+
+app.listen(app.get("port"), function () {
+  console.log("Node app is running at localhost:" + app.get("port"));
+});
+```
+#### `tsconfig.json`
+```
+{
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "noEmitOnError": true,
+    "removeComments": false,
+    "sourceMap": true,
+    "target": "es5",
+    "outDir": "dist"
+  },
+  "include": [
+    "**/*"
+  ]
+}
+```
+#### `package.json`
+```json
+{
+  "name": "heroku-express",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "scripts": {
+    "build": "tsc --build",
+    "clean": "tsc --build --clean",
+    "start": "yarn build; node dist/server.js"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.3",
+    "typescript": "^4.7.4"
+  }
+}
+```
+#### `Procfile`
+```
+web: yarn start
+```
+### yarn+Next
+- [参考: create-next-appでNext.jsとTypeScript環境を構築](https://mo-gu-mo-gu.com/create-next-app-typescript/)
+
+```shell
+npx create-next-app heroku-next --typescript
+# 適当にページ追加・編集
+
+# ローカルでのチェック
+yarn dev # 正しくページが表示されるか確認
+yarn build; yarn start # Procfileに書く内容の確認
+# 標準のlocalhost:3000でページが表示されるか確認
+
+# Procfileを`web: yarn build; yarn start`で作成
+heroku create
+git push heroku master
+```
 ### JavaScriptでの単純なexpress serverのデプロイ
 - [参考](https://gist.github.com/9sako6/50fbb501ccd64b2b77c1fe2b00086b71)
 #### `TypeScript`版

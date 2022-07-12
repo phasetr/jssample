@@ -1,0 +1,47 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/prisma/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/prisma/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/prisma"],
+      "options": {
+        "jestConfig": "libs/prisma/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "init": {
+      "builder": "@nrwl/workspace:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "npx prisma init",
+        "cwd": "libs/prisma"
+      }
+    },
+    "migrate": {
+      "builder": "@nrwl/workspace:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "npx prisma migrate dev --name init --schema=./prisma/schema.prisma",
+        "cwd": "libs/prisma"
+      }
+    },
+    "seed": {
+      "builder": "@nrwl/workspace:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "npx prisma db seed",
+        "cwd": "libs/prisma"
+      }
+    }
+  },
+  "tags": []
+}

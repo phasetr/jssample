@@ -5,6 +5,7 @@
     "fastify": "apps/fastify",
     "next": "apps/next",
     "next-e2e": "apps/next-e2e",
+    "prisma": "libs/prisma",
     "react": "apps/react",
     "react-e2e": "apps/react-e2e",
     "ui": "libs/ui",

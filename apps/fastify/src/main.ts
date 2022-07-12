@@ -56,7 +56,7 @@ app.post<{ Body: { email: string; password: string } }>(
   }
 );
 
-app.listen({ port: Number(process.env.PORT) }, (err) => {
+app.listen({ port: Number(process.env.PORT) || 3000 }, (err) => {
   if (err) {
     console.error(err);
     process.exit(1);
