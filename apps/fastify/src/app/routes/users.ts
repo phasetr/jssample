@@ -4,6 +4,7 @@ import {
   FastifyRegisterOptions,
   RegisterOptions,
 } from 'fastify';
+import { hashSync } from 'bcrypt';
 import { Prisma, PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
@@ -36,8 +37,8 @@ export const users: FastifyPluginCallback = (
 
     const result = await prisma.jwtSampleUser.create({
       data: {
-        email,
-        password,
+        email: email,
+        password: hashSync(password, 10),
         tasks: {
           create: taskData,
         },
