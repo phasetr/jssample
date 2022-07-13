@@ -307,6 +307,9 @@ app.listen(
 
 - `npx prisma studio`で`localhost:5555`にブラウザが起動する
 
+### Fastify+PrismaでJWT認証付きREST-APIサーバーを作る
+- [URL](https://zenn.dev/kanahiro/scraps/51d072103a9c68)
+
 ## heroku memo
 ### nx+React+Fastify
 - [参考](https://dev.to/ihaback/deploy-a-fullstack-nx-workspace-on-heroku-3mhk)
