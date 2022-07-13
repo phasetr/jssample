@@ -15,7 +15,7 @@ jobs:
         with:
           fetch-depth: 0
       - uses: nrwl/nx-set-shas@v2
-      - run: yarn ci
+      - run: yarn install --frozen-lockfile
 
       - run: yarn nx workspace-lint
       - run: yarn nx format:check
