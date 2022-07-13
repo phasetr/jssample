@@ -72,18 +72,16 @@ export const users: FastifyPluginCallback = (
   });
 
   fastify.delete<{ Params: { id: number } }>('/:id', async (req, res) => {
-    const { userId } = await req.jwtDecode();
-    const { id } = req.params;
+    const id = Number(req.params["id"]);
 
+    /*
+    const userId = await req.user["userId"];
     if (userId !== id) {
       res.send({ err: 401 });
     }
+     */
 
-    const users = await prisma.jwtSampleUser.delete({
-      where: {
-        id,
-      },
-    });
+    const users = await prisma.jwtSampleUser.delete({ where: { id } });
     res.send(users);
   });
 
