@@ -1,17 +1,5 @@
-import {
-  NavLink,
-  Outlet,
-  useLocation,
-  useSearchParams,
-} from 'react-router-dom';
+import { NavLink, Outlet, useSearchParams } from 'react-router-dom';
 import { getInvoices } from './react-data';
-
-// TODO: Add a proper type
-// @ts-ignore
-function QueryNavLink({ to, ...props }) {
-  const location = useLocation();
-  return <NavLink to={to + location.search} {...props} />;
-}
 
 export default function Invoices() {
   const invoices = getInvoices();
@@ -45,7 +33,7 @@ export default function Invoices() {
             return name.startsWith(filter.toLowerCase());
           })
           .map((invoice) => (
-            <QueryNavLink
+            <NavLink
               style={({ isActive }: { isActive: boolean }) => {
                 return {
                   display: 'block',
@@ -57,7 +45,7 @@ export default function Invoices() {
               key={invoice.number}
             >
               {invoice.name}
-            </QueryNavLink>
+            </NavLink>
           ))}
       </nav>
       <Outlet />

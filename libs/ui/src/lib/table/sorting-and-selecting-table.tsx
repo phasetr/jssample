@@ -249,7 +249,8 @@ EnhancedTableToolbar.propTypes = {
 export function SortingAndSelectingTable() {
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('calories');
-  const [selected, setSelected] = React.useState([]);
+  const selectedInitialState: string[] = [];
+  const [selected, setSelected] = React.useState(selectedInitialState);
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
@@ -266,7 +267,6 @@ export function SortingAndSelectingTable() {
   const handleSelectAllClick = (event: { target: { checked: any } }) => {
     if (event.target.checked) {
       const newSelecteds = rows.map((n) => n.name);
-      // @ts-ignore
       setSelected(newSelecteds);
       return;
     }
@@ -277,9 +277,8 @@ export function SortingAndSelectingTable() {
     event: React.MouseEvent<HTMLTableRowElement, MouseEvent>,
     name: any
   ) => {
-    // @ts-ignore
     const selectedIndex = selected.indexOf(name);
-    let newSelected: any[] | ((prevState: never[]) => never[]) = [];
+    let newSelected: string[] | ((prevState: string[]) => string[]) = [];
 
     if (selectedIndex === -1) {
       newSelected = newSelected.concat(selected, name);
@@ -293,8 +292,6 @@ export function SortingAndSelectingTable() {
         selected.slice(selectedIndex + 1)
       );
     }
-
-    // @ts-ignore
     setSelected(newSelected);
   };
 
@@ -316,8 +313,7 @@ export function SortingAndSelectingTable() {
     setDense(event.target.checked);
   };
 
-  // @ts-ignore
-  const isSelected = (name) => selected.indexOf(name) !== -1;
+  const isSelected = (name: string) => selected.indexOf(name) !== -1;
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
