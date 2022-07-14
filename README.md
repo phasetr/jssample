@@ -1,5 +1,5 @@
 # README
-
+[![Node.js NX CI](https://github.com/phasetr/jssample/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/phasetr/jssample/actions/workflows/main.yml)
 ## Storybook
 ```shell
 nx g @nrwl/react:storybook-configuration --name=ui

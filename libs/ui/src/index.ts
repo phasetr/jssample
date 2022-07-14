@@ -1,3 +1,7 @@
+export * from './dashboard/orders';
+export * from './dashboard/deposits';
+export * from './dashboard/title';
+export * from './dashboard/chart';
 export * from './lib/masonry/items-with-variable-height';
 export * from './lib/masonry/image-masonry';
 export * from './lib/masonry/basic-masonry';

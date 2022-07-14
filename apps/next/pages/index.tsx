@@ -27,6 +27,7 @@ const independentPageOrApp: MenuItem[] = [
     icon: <MailIcon />,
   },
   { to: '#', text: 'Home (here)', icon: <MailIcon /> },
+  { to: '/samples/dashboard', text: 'Responsive Dashboard', icon: <MailIcon /> },
   { to: '/samples/admin-state', text: 'Admin State', icon: <BookIcon /> },
   { to: '/samples/book-keeper', text: 'Book Keeper', icon: <BookIcon /> },
   { to: '/samples/nx-welcome', text: 'Nx Welcome', icon: <BookIcon /> },
