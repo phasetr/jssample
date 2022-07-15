@@ -27,13 +27,18 @@ const independentPageOrApp: MenuItem[] = [
     icon: <MailIcon />,
   },
   { to: '#', text: 'Home (here)', icon: <MailIcon /> },
-  { to: '/samples/dashboard', text: 'Responsive Dashboard', icon: <MailIcon /> },
+  {
+    to: '/samples/dashboard',
+    text: 'Responsive Dashboard',
+    icon: <MailIcon />,
+  },
   { to: '/samples/admin-state', text: 'Admin State', icon: <BookIcon /> },
   { to: '/samples/book-keeper', text: 'Book Keeper', icon: <BookIcon /> },
   { to: '/samples/nx-welcome', text: 'Nx Welcome', icon: <BookIcon /> },
 ];
 
 const componentSample: MenuItem[] = [
+  { to: '/samples/accordions', text: 'Accordions', icon: <BookIcon /> },
   { to: '/samples/app-bar/', text: 'App Bar', icon: <BookIcon /> },
   { to: '/samples/app-bar/bottom', text: 'Bottom App Bar', icon: <BookIcon /> },
   {
@@ -41,7 +46,11 @@ const componentSample: MenuItem[] = [
     text: 'Responsive App Bar with Drawer',
     icon: <BookIcon />,
   },
-  { to: '/samples/accordions', text: 'Accordions', icon: <BookIcon /> },
+  {
+    to: '/samples/auto-complete',
+    text: 'Auto Complete, Combo Box',
+    icon: <BookIcon />,
+  },
   { to: '/samples/divs', text: 'Divs', icon: <BookIcon /> },
   { to: '/samples/grids', text: 'Grids', icon: <BookIcon /> },
   { to: '/samples/headers', text: 'Headers', icon: <BookIcon /> },
