@@ -1,7 +1,6 @@
 import ListItemText from '@mui/material/ListItemText';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import MailIcon from '@mui/icons-material/Mail';
 import List from '@mui/material/List';
 import BookIcon from '@mui/icons-material/Book';
 import ListItem from '@mui/material/ListItem';
@@ -17,56 +16,40 @@ import Link from 'next/link';
 type MenuItem = {
   to: string;
   text: string;
-  icon: any; // TODO
 };
 
 const independentPageOrApp: MenuItem[] = [
-  {
-    to: 'http://localhost:4201',
-    text: 'To React (only local)',
-    icon: <MailIcon />,
-  },
-  { to: '#', text: 'Home (here)', icon: <MailIcon /> },
-  {
-    to: '/samples/dashboard',
-    text: 'Responsive Dashboard',
-    icon: <MailIcon />,
-  },
-  { to: '/samples/admin-state', text: 'Admin State', icon: <BookIcon /> },
-  { to: '/samples/book-keeper', text: 'Book Keeper', icon: <BookIcon /> },
-  { to: '/samples/nx-welcome', text: 'Nx Welcome', icon: <BookIcon /> },
+  { to: 'http://localhost:4201', text: 'To React (only local)' },
+  { to: '#', text: 'Home (here)' },
+  { to: '/samples/dashboard', text: 'Responsive Dashboard' },
+  { to: '/samples/admin-state', text: 'Admin State' },
+  { to: '/samples/book-keeper', text: 'Book Keeper' },
+  { to: '/samples/nx-welcome', text: 'Nx Welcome' },
 ];
 
 const componentSample: MenuItem[] = [
-  { to: '/samples/accordions', text: 'Accordions', icon: <BookIcon /> },
-  { to: '/samples/app-bar/', text: 'App Bar', icon: <BookIcon /> },
-  { to: '/samples/app-bar/bottom', text: 'Bottom App Bar', icon: <BookIcon /> },
+  { to: '/samples/accordions', text: 'Accordions' },
+  { to: '/samples/app-bar/', text: 'App Bar' },
+  { to: '/samples/app-bar/bottom', text: 'Bottom App Bar' },
   {
     to: '/samples/app-bar/responsive-with-drawer',
     text: 'Responsive App Bar with Drawer',
-    icon: <BookIcon />,
   },
-  {
-    to: '/samples/auto-complete',
-    text: 'Auto Complete, Combo Box',
-    icon: <BookIcon />,
-  },
-  { to: '/samples/divs', text: 'Divs', icon: <BookIcon /> },
-  { to: '/samples/grids', text: 'Grids', icon: <BookIcon /> },
-  { to: '/samples/headers', text: 'Headers', icon: <BookIcon /> },
-  { to: '/samples/hrs', text: 'Hrs', icon: <BookIcon /> },
-  { to: '/samples/links', text: 'Links', icon: <BookIcon /> },
-  { to: '/samples/masonries', text: 'Masonries', icon: <BookIcon /> },
-  { to: '/samples/tables', text: 'Tables', icon: <BookIcon /> },
+  { to: '/samples/auto-complete', text: 'Auto Complete, Combo Box' },
+  { to: '/samples/divs', text: 'Divs' },
+  { to: '/samples/grids', text: 'Grids' },
+  { to: '/samples/headers', text: 'Headers' },
+  { to: '/samples/hrs', text: 'Hrs' },
+  { to: '/samples/links', text: 'Links' },
+  { to: '/samples/masonries', text: 'Masonries' },
+  { to: '/samples/paging', text: 'ページング: useTransition' },
+  { to: '/samples/react-hook-form', text: 'React Hook Form' },
+  { to: '/samples/tables', text: 'Tables' },
 ];
 
 const externalLinks: MenuItem[] = [
-  { to: 'https://mui.com', text: 'MUI', icon: <BookIcon /> },
-  {
-    to: 'https://mui.com/material-ui/material-icons/',
-    text: 'Material Icons',
-    icon: <BookIcon />,
-  },
+  { to: 'https://mui.com', text: 'MUI' },
+  { to: 'https://mui.com/material-ui/material-icons/', text: 'Material Icons' },
 ];
 
 export function Index() {
@@ -99,12 +82,14 @@ export function Index() {
         </AccordionSummary>
         <AccordionDetails>
           <List>
-            {independentPageOrApp.map(({ to, text, icon }) => (
+            {independentPageOrApp.map(({ to, text }) => (
               <Link href={to} key={to} passHref>
                 <MuiLink href={to} key={to}>
                   <ListItem disablePadding>
                     <ListItemButton>
-                      <ListItemIcon>{icon}</ListItemIcon>
+                      <ListItemIcon>
+                        <BookIcon />
+                      </ListItemIcon>
                       <ListItemText primary={text} />
                     </ListItemButton>
                   </ListItem>
@@ -132,12 +117,14 @@ export function Index() {
         </AccordionSummary>
         <AccordionDetails>
           <List>
-            {componentSample.map(({ to, text, icon }) => (
+            {componentSample.map(({ to, text }) => (
               <Link href={to} key={to} passHref>
                 <MuiLink href={to} key={to}>
                   <ListItem disablePadding>
                     <ListItemButton>
-                      <ListItemIcon>{icon}</ListItemIcon>
+                      <ListItemIcon>
+                        <BookIcon />
+                      </ListItemIcon>
                       <ListItemText primary={text} />
                     </ListItemButton>
                   </ListItem>
@@ -165,7 +152,7 @@ export function Index() {
         </AccordionSummary>
         <AccordionDetails>
           <List>
-            {externalLinks.map(({ to, text, icon }) => (
+            {externalLinks.map(({ to, text }) => (
               <Link href={to} key={to} passHref>
                 <MuiLink
                   href={to}
@@ -175,7 +162,9 @@ export function Index() {
                 >
                   <ListItem key={to} disablePadding>
                     <ListItemButton>
-                      <ListItemIcon>{icon}</ListItemIcon>
+                      <ListItemIcon>
+                        <BookIcon />
+                      </ListItemIcon>
                       <ListItemText primary={text} />
                     </ListItemButton>
                   </ListItem>

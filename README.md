@@ -71,9 +71,10 @@ yarn create nx-workspace --package-manager=yarn heroku-nx
 ## Frontend deploy: Vercel
 - [cf](https://nx.dev/guides/deploy-nextjs-to-vercel)
 ### Vercel設定画面
+- `Settings`タブをクリックする
 - `Build and Output Setting`を開く
-- build command: yarn nx build next --prod
-- output directory: dist/apps/next/.next
+- build command: `yarn nx build next --prod`
+- output directory: `dist/apps/next/.next`
 
 ## Nest.jsへのメモ
 - [参考](https://zenn.dev/devgeeeen/articles/125a076f81b0df)
