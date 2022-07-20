@@ -44,6 +44,7 @@ const componentSample: MenuItem[] = [
   { to: '/samples/masonries', text: 'Masonries' },
   { to: '/samples/paging', text: 'ページング: useTransition' },
   { to: '/samples/react-hook-form', text: 'React Hook Form' },
+  { to: '/samples/responsive', text: 'Responsive: MUI' },
   { to: '/samples/tables', text: 'Tables' },
 ];
 
