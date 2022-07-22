@@ -2,19 +2,19 @@ import { useRecoilState } from "recoil";
 import todoListState from "./todo-list-state";
 
 export type TodoItemType = {
- id: number,
- text: string,
- isComplete: boolean
+  id: number,
+  text: string,
+  isComplete: boolean
 }
 
-export function TodoItem({item}) {
+export function TodoItem({ item: item }: { item: TodoItemType }) {
   const [todoList, setTodoList] = useRecoilState(todoListState);
   const index = todoList.findIndex((listItem) => listItem === item);
 
   const editItemText = (event: { target: { value: string; }; }) => {
     const newList: TodoItemType[] = replaceItemAtIndex(todoList, index, {
       ...item,
-      text: event.target.value,
+      text: event.target.value
     });
 
     setTodoList(newList);
@@ -23,7 +23,7 @@ export function TodoItem({item}) {
   const toggleItemCompletion = () => {
     const newList = replaceItemAtIndex(todoList, index, {
       ...item,
-      isComplete: !item.isComplete,
+      isComplete: !item.isComplete
     });
 
     setTodoList(newList);
