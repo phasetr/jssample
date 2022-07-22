@@ -1,5 +1,5 @@
 import { atom } from "recoil";
-import { TodoItemType } from "./todo-item";
+import { TodoItemType } from "../todo-item";
 
 const emptyArray: TodoItemType[] = [];
 export const todoListState = atom({

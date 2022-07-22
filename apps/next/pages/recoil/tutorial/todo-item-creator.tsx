@@ -1,6 +1,6 @@
 import { SetStateAction, useState } from "react";
 import { useSetRecoilState } from "recoil";
-import todoListState from "./todo-list-state";
+import todoListState from "./state/todo-list-state";
 import { TodoItemType } from "./todo-item";
 
 export function TodoItemCreator() {

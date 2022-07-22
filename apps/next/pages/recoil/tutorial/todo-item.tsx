@@ -1,5 +1,5 @@
 import { useRecoilState } from "recoil";
-import todoListState from "./todo-list-state";
+import todoListState from "./state/todo-list-state";
 
 export type TodoItemType = {
   id: number,
