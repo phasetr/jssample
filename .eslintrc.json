@@ -1,7 +1,10 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
-  "plugins": ["@nrwl/nx"],
+  "plugins": [
+    "@nrwl/nx",
+    "react-hooks"
+  ],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
@@ -23,6 +26,12 @@
           1,
           {
             "argsIgnorePattern": "^_"
+          }
+        ],
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": [
+          "warn", {
+            "additionalHooks": "(useRecoilCallback|useRecoilTransaction_UNSTABLE)"
           }
         ]
       }

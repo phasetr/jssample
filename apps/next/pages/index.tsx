@@ -25,6 +25,8 @@ const independentPageOrApp: MenuItem[] = [
   { to: '/samples/admin-state', text: 'Admin State' },
   { to: '/samples/book-keeper', text: 'Book Keeper' },
   { to: '/samples/nx-welcome', text: 'Nx Welcome' },
+  { to: '/recoil/introduction', text: 'Recoil introduction' },
+  { to: '/recoil/tutorial', text: 'Recoil tutorial' },
 ];
 
 const componentSample: MenuItem[] = [
