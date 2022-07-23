@@ -6,4 +6,3 @@ export const todoListState = atom({
   key: 'TodoList',
   default: emptyArray,
 });
-export default todoListState;

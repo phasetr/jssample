@@ -1,5 +1,5 @@
 import { selector } from "recoil";
-import todoListState from "./todo-list-state";
+import { todoListState } from "./todo-list-state";
 
 export const todoListStatsState = selector({
   key: 'TodoListStats',
@@ -18,4 +18,3 @@ export const todoListStatsState = selector({
     };
   },
 });
-export default todoListStatsState

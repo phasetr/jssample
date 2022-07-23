@@ -19,4 +19,3 @@ export const filteredTodoListState = selector({
     }
   },
 });
-export default filteredTodoListState;

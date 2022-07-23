@@ -1,4 +1,4 @@
-import textState from "./text-state";
+import { textState } from "./text-state";
 import { selector } from "recoil";
 
 export const charCountState = selector({
@@ -9,4 +9,3 @@ export const charCountState = selector({
     return text.length;
   },
 });
-export default charCountState;

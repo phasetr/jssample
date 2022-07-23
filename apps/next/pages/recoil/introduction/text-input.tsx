@@ -1,5 +1,5 @@
 import { useRecoilState } from "recoil";
-import textState from "./text-state";
+import { textState } from "./state/text-state";
 
 export function TextInput() {
   const [text, setText] = useRecoilState(textState);

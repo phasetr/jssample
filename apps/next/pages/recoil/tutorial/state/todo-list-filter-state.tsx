@@ -4,4 +4,3 @@ export const todoListFilterState = atom({
   key: 'TodoListFilter',
   default: 'Show All',
 });
-export default todoListFilterState;
